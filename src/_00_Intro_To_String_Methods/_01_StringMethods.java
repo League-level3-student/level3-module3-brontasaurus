@@ -21,6 +21,7 @@ import java.util.Base64;
  * substring
  * toUpperCase/toLowerCase
  * valueOf
+ * charAt(index)
  *
  * Here are some Character methods you might find useful:
  * Character.toLowerCase(char c);
@@ -34,13 +35,21 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+    	if (s1.length() > s2.length()) {
+        return s1;
+    	}
+    	return s2;
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+    	String S;
+    	if (s.contains("underscores")) {
+    		S = s.replace(' ', '_');
+    		return S;
+    	}
+    	return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
@@ -53,7 +62,14 @@ public class _01_StringMethods {
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	int total = 0;
+    	for (int i = 0; i < s.length(); i++) {
+    		if (Character.isDigit(s.charAt(i))) {
+    			total = total + Character.getNumericValue(s.charAt(i));
+    			
+    		}
+    	}
+        return total;
     }
 
     // Return the number of times String substring appears in String s
